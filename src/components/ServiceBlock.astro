@@ -1,0 +1,218 @@
+---
+import WhatsAppButton from './WhatsAppButton.astro';
+
+interface Props {
+  id: string;
+  title: string;
+  icon: string;
+  summary: string;
+  bullets: string[];
+  image: string;
+  whatsappMessage: string;
+  isReversed?: boolean;
+}
+
+const {
+  id,
+  title,
+  icon,
+  summary,
+  bullets,
+  image,
+  whatsappMessage,
+  isReversed = false
+} = Astro.props;
+---
+
+<article class={`service-block ${isReversed ? 'reversed' : ''}`} id={id}>
+  <div class="service-image-col">
+    <div class="image-frame">
+      <img src={image} alt={`${title} by Walsh Garden and Tree Care`} loading="lazy" />
+      <div class="frame-tag">
+        <span>🇮🇪 Nationwide Routes</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="service-content-col">
+    <div class="service-header">
+      <span class="service-icon">{icon}</span>
+      <h2 class="service-title">{title}</h2>
+    </div>
+    
+    <p class="service-summary">{summary}</p>
+    
+    <div class="service-highlights">
+      <h3 class="highlights-heading">What We Deliver:</h3>
+      <ul class="service-checklist">
+        {bullets.map((item) => (
+          <li>
+            <span class="check-icon">✓</span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="service-ctas">
+      <WhatsAppButton 
+        text={`WhatsApp Quote for ${title}`} 
+        message={whatsappMessage} 
+      />
+      <a href="tel:+353894494281" class="btn btn-outline-primary btn-call">
+        <span>📞 089 449 4281</span>
+      </a>
+    </div>
+  </div>
+</article>
+
+<style>
+  .service-block {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
+    padding: 3.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .service-block:last-child {
+    border-bottom: none;
+  }
+
+  @media (min-width: 900px) {
+    .service-block {
+      grid-template-columns: 1fr 1.15fr;
+      gap: 4rem;
+    }
+
+    .service-block.reversed {
+      direction: rtl;
+    }
+
+    .service-block.reversed > * {
+      direction: ltr;
+    }
+  }
+
+  .image-frame {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background-color: #111;
+  }
+
+  .image-frame img {
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .image-frame:hover img {
+    transform: scale(1.02);
+  }
+
+  .frame-tag {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: rgba(27, 27, 27, 0.85);
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.4rem 0.85rem;
+    border-radius: var(--radius-full);
+    backdrop-filter: blur(6px);
+  }
+
+  .service-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .service-icon {
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+
+  .service-title {
+    font-size: 2rem;
+    color: var(--color-dark);
+    margin: 0;
+  }
+
+  .service-summary {
+    font-size: 1.125rem;
+    color: var(--color-gray-dark);
+    line-height: 1.6;
+    margin-bottom: 1.75rem;
+  }
+
+  .service-highlights {
+    background: var(--color-gray-light);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 2rem;
+  }
+
+  .highlights-heading {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    margin-bottom: 1rem;
+  }
+
+  .service-checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .service-checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.975rem;
+    color: var(--color-dark);
+    line-height: 1.4;
+  }
+
+  .check-icon {
+    color: var(--color-primary);
+    font-weight: 800;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .service-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .btn-call {
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 640px) {
+    .service-title {
+      font-size: 1.65rem;
+    }
+    .service-ctas {
+      flex-direction: column;
+      width: 100%;
+    }
+    .service-ctas :global(.btn), .btn-call {
+      width: 100%;
+    }
+  }
+</style>

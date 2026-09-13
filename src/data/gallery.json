@@ -1,0 +1,163 @@
+[
+  {
+    "id": "c1",
+    "title": "Garden Hedge Height Reduction",
+    "category": "Before & After",
+    "src": "/images/01-collage-pair1.jpg",
+    "alt": "Before and after hedge trimming along garden walkway by Walsh Garden and Tree Care"
+  },
+  {
+    "id": "c2",
+    "title": "Back Garden Hedge Overhaul",
+    "category": "Before & After",
+    "src": "/images/02-collage-pair2.jpg",
+    "alt": "Before and after hedge cutting and site cleanup near washing line"
+  },
+  {
+    "id": "c3",
+    "title": "Roadside Conifer Level Cut",
+    "category": "Before & After",
+    "src": "/images/03-collage-pair3.jpg",
+    "alt": "Before and after roadside conifer hedge height reduction"
+  },
+  {
+    "id": "c4",
+    "title": "Tall Conifer Hedge Shearing",
+    "category": "Before & After",
+    "src": "/images/04-collage-pair4.jpg",
+    "alt": "Before and after tall conifer hedge trimming and lawn debris removal"
+  },
+  {
+    "id": "c5",
+    "title": "Garden Shrub & Bush Shaping",
+    "category": "Before & After",
+    "src": "/images/05-collage-pair5.jpg",
+    "alt": "Before and after shrub pruning and garden corner shaping"
+  },
+  {
+    "id": "c6",
+    "title": "Roadside Conifer Boundary Trimming",
+    "category": "Before & After",
+    "src": "/images/37-collage-pair6.jpg",
+    "alt": "Before and after conifer boundary hedge cut along public road"
+  },
+  {
+    "id": "c7",
+    "title": "Bankside Tree Felling & Removal",
+    "category": "Before & After",
+    "src": "/images/39-collage-pair7.jpg",
+    "alt": "Before and after dangerous tree removal on stone retaining wall"
+  },
+  {
+    "id": "c8",
+    "title": "Overhanging Branch Pruning",
+    "category": "Before & After",
+    "src": "/images/41-collage-pair8.jpg",
+    "alt": "Before and after tree canopy pruning over boundary wall"
+  },
+  {
+    "id": "c9",
+    "title": "Garden Clearance & Strimming",
+    "category": "Before & After",
+    "src": "/images/43-collage-pair9.jpg",
+    "alt": "Before and after overgrown weed clearance and strimming"
+  },
+  {
+    "id": "c10",
+    "title": "Residential Window Shrub Trimming",
+    "category": "Before & After",
+    "src": "/images/45-collage-window-shrub.jpg",
+    "alt": "Before and after window shrub cutback"
+  },
+  {
+    "id": "c11",
+    "title": "Topiary Evergreen Shaping",
+    "category": "Before & After",
+    "src": "/images/46-collage-topiary-oval.jpg",
+    "alt": "Before and after oval topiary bush shaping"
+  },
+  {
+    "id": "c12",
+    "title": "Driveway Hedge Line Reduction",
+    "category": "Before & After",
+    "src": "/images/48-collage-driveway-garage.jpg",
+    "alt": "Before and after long driveway hedge cutting"
+  },
+  {
+    "id": "a1",
+    "title": "Pristine Squared Laurel Hedge",
+    "category": "Showcase Work",
+    "src": "/images/12-after-hedge-lidl.jpg",
+    "alt": "Precision trimmed boundary hedge bordering lawn"
+  },
+  {
+    "id": "a2",
+    "title": "Expansive Garden Lawn & Perimeter Hedge",
+    "category": "Showcase Work",
+    "src": "/images/13-after-garden-lawn-slide.jpg",
+    "alt": "Freshly mown grass and leveled rear boundary hedge"
+  },
+  {
+    "id": "a3",
+    "title": "High-Reach Cherry Picker Operation",
+    "category": "Showcase Work",
+    "src": "/images/15-after-tall-hedge-mewp-1.jpg",
+    "alt": "High reach cherry picker hedge trimming on giant conifers"
+  },
+  {
+    "id": "a4",
+    "title": "Two-Tier Formal Garden Hedge",
+    "category": "Showcase Work",
+    "src": "/images/18-after-formal-hedge.jpg",
+    "alt": "Two tier formal hedge cutting and pristine lawn presentation"
+  },
+  {
+    "id": "a5",
+    "title": "Topiary Garden Detailing & Scots Pine",
+    "category": "Showcase Work",
+    "src": "/images/19-after-topiary-scots-pine.jpg",
+    "alt": "Artistic topiary shaping and garden boundary detailing"
+  },
+  {
+    "id": "a6",
+    "title": "Continuous Laurel Wall Finish",
+    "category": "Showcase Work",
+    "src": "/images/52-after-laurel-wall.jpg",
+    "alt": "Long green laurel wall trimmed completely flat and uniform"
+  },
+  {
+    "id": "a7",
+    "title": "Thatched Cottage Entrance Box Hedges",
+    "category": "Showcase Work",
+    "src": "/images/54-after-thatched-cottage-hedges-1.jpg",
+    "alt": "Geometric box cut evergreen hedges framing thatched cottage"
+  },
+  {
+    "id": "w1",
+    "title": "Timberwolf Wood Chipper in Action",
+    "category": "On The Job",
+    "src": "/images/30-in-progress-wood-chipper-truck.jpg",
+    "alt": "Feeding branches into heavy duty Timberwolf diesel wood chipper"
+  },
+  {
+    "id": "w2",
+    "title": "Green Waste Haul-Away & Bulk Bags",
+    "category": "On The Job",
+    "src": "/images/31-in-progress-leaf-clearing-bulk-bags.jpg",
+    "alt": "Bulk bag collection and loading into tipper transport vehicle"
+  },
+  {
+    "id": "w3",
+    "title": "Chainsaw Sectional Tree Dismantling",
+    "category": "On The Job",
+    "src": "/images/63-in-progress-chainsaw-log-stump.jpg",
+    "alt": "Chainsaw felling and sectional cutting of massive tree trunk"
+  },
+  {
+    "id": "w4",
+    "title": "Professional Commercial STIHL Gear",
+    "category": "On The Job",
+    "src": "/images/35-in-progress-stihl-ladder.jpg",
+    "alt": "Commercial STIHL hedge trimmer and professional tripod ladder"
+  }
+]

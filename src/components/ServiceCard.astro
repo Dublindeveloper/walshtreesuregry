@@ -1,0 +1,164 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  icon: string;
+  summary: string;
+  bullets: string[];
+  image: string;
+  whatsappMessage: string;
+}
+
+const { id, title, icon, summary, bullets, image, whatsappMessage } = Astro.props;
+const whatsappUrl = `https://wa.me/353894494281?text=${encodeURIComponent(whatsappMessage)}`;
+---
+
+<div class="service-card" id={`card-${id}`}>
+  <div class="card-image-wrap">
+    <img src={image} alt={title} class="card-img" loading="lazy" />
+    <span class="service-icon-badge">{icon}</span>
+  </div>
+  <div class="card-body">
+    <h3 class="card-title">{title}</h3>
+    <p class="card-summary">{summary}</p>
+    <ul class="card-bullets">
+      {bullets.slice(0, 3).map((bullet) => (
+        <li>
+          <span class="check">✓</span>
+          <span>{bullet}</span>
+        </li>
+      ))}
+    </ul>
+    <div class="card-footer">
+      <a href={`/services#${id}`} class="btn btn-outline-primary btn-sm">
+        Learn More
+      </a>
+      <a 
+        href={whatsappUrl} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="whatsapp-quick-link"
+        title="Get WhatsApp Quote"
+      >
+        <span>💬 Free Quote</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .service-card {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .card-image-wrap {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    background-color: #222;
+    overflow: hidden;
+  }
+
+  .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .service-card:hover .card-img {
+    transform: scale(1.03);
+  }
+
+  .service-icon-badge {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: rgba(255, 255, 255, 0.95);
+    font-size: 1.5rem;
+    line-height: 1;
+    padding: 8px;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .card-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+    color: var(--color-dark);
+  }
+
+  .card-summary {
+    font-size: 0.925rem;
+    color: var(--color-gray);
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+  }
+
+  .card-bullets {
+    list-style: none;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .card-bullets li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    color: var(--color-gray-dark);
+  }
+
+  .check {
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+
+  .card-footer {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .btn-sm {
+    padding: 0.5rem 1.15rem;
+    font-size: 0.875rem;
+  }
+
+  .whatsapp-quick-link {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: var(--color-whatsapp);
+    transition: color 0.2s ease;
+  }
+
+  .whatsapp-quick-link:hover {
+    color: var(--color-whatsapp-dark);
+    text-decoration: underline;
+  }
+</style>

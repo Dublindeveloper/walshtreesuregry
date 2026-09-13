@@ -1,0 +1,77 @@
+[
+  {
+    "id": "tree-surgery",
+    "title": "Tree Surgery & Care",
+    "icon": "🌳",
+    "summary": "Professional tree felling, crown reduction, precision branch pruning, limb removal, and safe dismantling of dangerous or storm-damaged trees.",
+    "bullets": [
+      "Tree felling in all spaces & confined areas",
+      "Crown reduction & precision crown thinning",
+      "Limb removal & hazardous branch cutting",
+      "Safe dismantling of storm-damaged or dangerous trees",
+      "Deadwood clearing & full site cleanup"
+    ],
+    "image": "/images/39-collage-pair7.jpg",
+    "whatsappMessage": "Hi John, I would like a free quote for Tree Surgery & Care please."
+  },
+  {
+    "id": "hedge-trimming",
+    "title": "Hedge Trimming & Maintenance",
+    "icon": "🌿",
+    "summary": "Regular hedge cutting, heavy reductions, reshaping, and complete boundary hedge maintenance for properties of all sizes.",
+    "bullets": [
+      "Scheduled & regular hedge cutting",
+      "Heavy height reductions & major reshaping",
+      "Boundary hedge maintenance & trimming",
+      "High-access conifer & leylandii hedge care",
+      "All foliage trimmings raked and cleared away"
+    ],
+    "image": "/images/01-collage-pair1.jpg",
+    "whatsappMessage": "Hi John, I would like a free quote for Hedge Trimming & Maintenance please."
+  },
+  {
+    "id": "garden-clearance",
+    "title": "Garden Clearances & Makeovers",
+    "icon": "🏡",
+    "summary": "Full removal of overgrown briars, ivy, and weeds, clearing wild sites, and preparing ground for fresh use.",
+    "bullets": [
+      "Overgrown site clearing & jungle rescues",
+      "Removal of dense briars, nettles, and invasive ivy",
+      "Full green waste chipping and haul-away",
+      "Ground levelling and clearing for fresh planting",
+      "Complete outdoor makeover preparation"
+    ],
+    "image": "/images/43-collage-pair9.jpg",
+    "whatsappMessage": "Hi John, I would like a free quote for Garden Clearance & Makeovers please."
+  },
+  {
+    "id": "lawn-care",
+    "title": "Lawn Care & Maintenance",
+    "icon": "🌱",
+    "summary": "Large-scale grass cutting, turf maintenance, lawn restoration, and edge trimming for expansive grounds.",
+    "bullets": [
+      "Large-scale grass cutting & acreage mowing",
+      "Turf maintenance & seasonal lawn restoration",
+      "Crisp border edge trimming & detailing",
+      "Ride-on mower service for domestic & estate grounds",
+      "Seasonal upkeep programmes available"
+    ],
+    "image": "/images/13-after-garden-lawn-slide.jpg",
+    "whatsappMessage": "Hi John, I would like a free quote for Lawn Care & Maintenance please."
+  },
+  {
+    "id": "stump-grinding",
+    "title": "Stump Grinding & Removal",
+    "icon": "🪵",
+    "summary": "Machine grinding of old tree stumps down below ground level to leave lawns clean and ready for reuse.",
+    "bullets": [
+      "Precision machine grinding below ground level",
+      "Complete eradication of unsightly tree stumps",
+      "Root chasing without damaging surrounding garden",
+      "Ground left completely flat, clean, and tidy",
+      "Area ready for new turf, paving, or planting"
+    ],
+    "image": "/images/63-in-progress-chainsaw-log-stump.jpg",
+    "whatsappMessage": "Hi John, I would like a free quote for Stump Grinding & Removal please."
+  }
+]

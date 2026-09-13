@@ -1,0 +1,287 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CoverageHubs from '../components/CoverageHubs.astro';
+import CTAStrip from '../components/CTAStrip.astro';
+
+const pageTitle = "About John Walsh | Walsh Garden and Tree Care Ireland";
+const pageDescription = "Learn about Walsh Garden and Tree Care, led by John Walsh. Experienced tree surgeon and grounds maintenance specialist servicing all four provinces across Ireland.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <!-- About Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="badge badge-gold">Experienced Grounds & Tree Specialist</span>
+      <h1 class="page-title">About Walsh Garden & Tree Care</h1>
+      <p class="page-subtitle">
+        Led directly by John Walsh, providing professional tree surgery, precision hedge cutting, and large-scale garden clearances nationwide across Ireland.
+      </p>
+    </div>
+  </section>
+
+  <!-- Story & Values Section -->
+  <section class="section">
+    <div class="container about-grid">
+      <div class="about-text">
+        <span class="badge">Direct Contractor Philosophy</span>
+        <h2>Personal Accountability on Every Project</h2>
+        <p class="lead-p">
+          At Walsh Garden and Tree Care, we believe homeowners and estate managers deserve clear communication, honest upfront advice, and the highest standards of workmanship.
+        </p>
+        <p>
+          When you pick up the phone or send photos on WhatsApp, you speak directly with John Walsh. John personally oversees quotations, route planning, and hands-on execution on site. There are no commission salespeople, no middlemen, and no subcontractors.
+        </p>
+        <p>
+          Over years of dedicated service, we have built a reputation for tackling difficult, heavy, and overgrown jobs that other gardeners turn down. Whether it is safely dismantling a dangerous overhanging tree, bringing a wildly overgrown boundary conifer hedge back to line, or clearing acres of invasive briars and weeds, we have the machinery and experience to get the job done right.
+        </p>
+
+        <div class="callout-box">
+          <div class="callout-icon">⭐</div>
+          <div>
+            <h4>The Clean Site Guarantee</h4>
+            <p>We treat your property with complete respect. We don't just cut down branches and leave a mountain of debris — we chip the timber, bag or transport all green waste, and blow and rake all pathways spotless before we pack our tools.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-media">
+        <div class="image-stack">
+          <img 
+            src="/images/26-in-progress-tree-felling-ladders.jpg" 
+            alt="John Walsh tree felling operation with professional ladder and safety gear" 
+            class="about-img-main"
+          />
+          <div class="experience-badge">
+            <span class="num">100%</span>
+            <span class="txt">Dedicated Nationwide Fleet</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Machinery & Fleet Section -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">Professional Tooling</span>
+        <h2>Commercial Fleet & Heavy Machinery</h2>
+        <p>
+          Investing in top-tier commercial equipment allows us to work efficiently, safely, and cost-effectively anywhere in Ireland.
+        </p>
+      </div>
+
+      <div class="grid-3 fleet-grid">
+        <div class="fleet-card">
+          <img src="/images/30-in-progress-wood-chipper-truck.jpg" alt="Timberwolf commercial wood chipper" loading="lazy" />
+          <div class="fleet-info">
+            <h3>Timberwolf Commercial Chipper</h3>
+            <p>High-capacity diesel chipper reduces massive piles of tree limbs and brushwood into neat mulch within minutes, eliminating the need for smoky bonfires.</p>
+          </div>
+        </div>
+
+        <div class="fleet-card">
+          <img src="/images/35-in-progress-stihl-ladder.jpg" alt="Commercial STIHL trimmers and ladders" loading="lazy" />
+          <div class="fleet-info">
+            <h3>STIHL Commercial Power Tools</h3>
+            <p>Extended-reach pole saws, precision long-reach hedge cutters, and high-displacement professional chainsaws designed for clean, laser-straight cuts.</p>
+          </div>
+        </div>
+
+        <div class="fleet-card">
+          <img src="/images/31-in-progress-leaf-clearing-bulk-bags.jpg" alt="Green waste haulage bulk bags" loading="lazy" />
+          <div class="fleet-info">
+            <h3>Dedicated Transport Vehicles</h3>
+            <p>Heavy-duty tipping transport vehicles and bulk bag management ensure complete, lawful removal and disposal of all organic waste from your grounds.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nationwide Hubs Overview -->
+  <CoverageHubs />
+
+  <!-- Bottom CTA -->
+  <CTAStrip 
+    title="Ready to Discuss Your Grounds or Trees?"
+    subtitle="Speak directly with John Walsh on 089 449 4281 or send photos via WhatsApp for a quick, no-obligation quote."
+    whatsappMessage="Hi John, I read your about page and would like to speak with you about my garden/trees."
+  />
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(180deg, #f4f7f5 0%, #ffffff 100%);
+    padding: 4rem 0 3rem 0;
+    text-align: center;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .page-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    margin-top: 0.75rem;
+    margin-bottom: 1rem;
+    color: var(--color-dark);
+  }
+
+  .page-subtitle {
+    font-size: 1.15rem;
+    color: var(--color-gray-dark);
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+
+  @media (min-width: 960px) {
+    .about-grid {
+      grid-template-columns: 1.2fr 1fr;
+      gap: 4.5rem;
+    }
+  }
+
+  .about-text h2 {
+    font-size: 2.25rem;
+    margin-top: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .lead-p {
+    font-size: 1.15rem;
+    color: var(--color-dark);
+    font-weight: 600;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+    color: var(--color-gray);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+
+  .callout-box {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: rgba(45, 106, 79, 0.08);
+    border-left: 4px solid var(--color-primary);
+    border-radius: var(--radius-sm);
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .callout-icon {
+    font-size: 2rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .callout-box h4 {
+    font-size: 1.1rem;
+    color: var(--color-primary-dark);
+    margin-bottom: 0.35rem;
+  }
+
+  .callout-box p {
+    font-size: 0.925rem;
+    color: var(--color-dark);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .image-stack {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .about-img-main {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .experience-badge {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: var(--color-primary);
+    color: #ffffff;
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .experience-badge .num {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .experience-badge .txt {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.25rem;
+  }
+
+  .fleet-card {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .fleet-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
+
+  .fleet-info {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .fleet-info h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-dark);
+  }
+
+  .fleet-info p {
+    font-size: 0.9rem;
+    color: var(--color-gray);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  @media (max-width: 640px) {
+    .page-title {
+      font-size: 2rem;
+    }
+  }
+</style>

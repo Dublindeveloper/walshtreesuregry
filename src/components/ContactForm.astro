@@ -1,0 +1,193 @@
+---
+---
+
+<div class="contact-form-wrapper">
+  <div class="form-header">
+    <h3>Request a Free Quotation</h3>
+    <p>Fill out the form below and John will contact you promptly. Or message directly on WhatsApp for same-day photo appraisal.</p>
+  </div>
+
+  <form 
+    action="https://formspree.io/f/placeholder" 
+    method="POST" 
+    class="quote-form"
+    id="contact-quote-form"
+  >
+    <div class="form-group">
+      <label for="name">Your Name *</label>
+      <input type="text" id="name" name="name" required placeholder="e.g. Patrick O'Brien" />
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone Number *</label>
+      <input type="tel" id="phone" name="phone" required placeholder="e.g. 089 123 4567" />
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="county">County / Area *</label>
+        <select id="county" name="county" required>
+          <option value="" disabled selected>Select Your County</option>
+          <option value="Offaly">Offaly</option>
+          <option value="Westmeath">Westmeath</option>
+          <option value="Laois">Laois</option>
+          <option value="Longford">Longford</option>
+          <option value="Dublin">Dublin</option>
+          <option value="Kildare">Kildare</option>
+          <option value="Meath">Meath</option>
+          <option value="Louth">Louth</option>
+          <option value="Wexford">Wexford</option>
+          <option value="Cork">Cork</option>
+          <option value="Limerick">Limerick</option>
+          <option value="Waterford">Waterford</option>
+          <option value="Kerry">Kerry</option>
+          <option value="Galway">Galway</option>
+          <option value="Roscommon">Roscommon</option>
+          <option value="Mayo">Mayo</option>
+          <option value="Sligo">Sligo</option>
+          <option value="Donegal">Donegal</option>
+          <option value="Other County">Other County in Ireland</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="service">Service Required *</label>
+        <select id="service" name="service" required>
+          <option value="" disabled selected>Select Service</option>
+          <option value="Tree Surgery & Care">Tree Surgery & Care</option>
+          <option value="Hedge Trimming & Maintenance">Hedge Trimming & Maintenance</option>
+          <option value="Garden Clearances & Makeovers">Garden Clearances & Makeovers</option>
+          <option value="Lawn Care & Maintenance">Lawn Care & Maintenance</option>
+          <option value="Stump Grinding & Removal">Stump Grinding & Removal</option>
+          <option value="Multiple / Full Grounds Care">Multiple / Full Grounds Care</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="message">Job Details / Description</label>
+      <textarea 
+        id="message" 
+        name="message" 
+        rows="4" 
+        placeholder="Tell us about the trees, hedges, or garden area (approximate size, height, access, etc.)..."
+      ></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary form-submit-btn">
+      <span>Send Quote Request</span>
+    </button>
+  </form>
+
+  <div class="whatsapp-prompt">
+    <div class="wp-icon">💬</div>
+    <div class="wp-text">
+      <strong>Prefer WhatsApp?</strong> Send photos or a quick video of your trees or garden to <strong>089 449 4281</strong> for a fast estimate without filling forms.
+    </div>
+  </div>
+</div>
+
+<style>
+  .contact-form-wrapper {
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--color-border);
+  }
+
+  .form-header {
+    margin-bottom: 2rem;
+  }
+
+  .form-header h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-dark);
+  }
+
+  .form-header p {
+    color: var(--color-gray);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .quote-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 600px) {
+    .form-row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  label {
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--color-dark);
+  }
+
+  input, select, textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--color-dark);
+    background-color: #ffffff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.15);
+  }
+
+  .form-submit-btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.05rem;
+    margin-top: 0.5rem;
+  }
+
+  .whatsapp-prompt {
+    margin-top: 2rem;
+    padding: 1.25rem;
+    background: rgba(37, 211, 102, 0.1);
+    border: 1px solid rgba(37, 211, 102, 0.25);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .wp-icon {
+    font-size: 1.75rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .wp-text {
+    font-size: 0.875rem;
+    color: #1e4620;
+    line-height: 1.45;
+  }
+</style>

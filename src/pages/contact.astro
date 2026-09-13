@@ -1,0 +1,341 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+import coverage from '../data/coverage.json';
+
+const pageTitle = "Contact John Walsh | Tree Surgery & Garden Care Nationwide";
+const pageDescription = "Get in touch with John Walsh for tree surgery, hedge trimming, garden clearance or lawn care across Ireland. Call or WhatsApp 089 449 4281 for a free quote.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="badge badge-gold">Direct Contractor Access</span>
+      <h1 class="page-title">Contact Walsh Garden & Tree Care</h1>
+      <p class="page-subtitle">
+        Have a question or need a quote? Contact John Walsh directly. We service all four provinces nationwide across Ireland with regular weekly routes.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container contact-grid">
+      <!-- Contact Details & Info -->
+      <div class="contact-info">
+        <div class="info-card">
+          <span class="badge">Fastest Response</span>
+          <h2>Direct Contact Channels</h2>
+          <p class="info-intro">
+            For the quickest quote, send photos or a short video clip of your trees or garden to John on WhatsApp. You'll receive a prompt appraisal and available route dates.
+          </p>
+
+          <div class="channels-list">
+            <!-- WhatsApp Item -->
+            <a 
+              href="https://wa.me/353894494281?text=Hi%20John%2C%20I'd%20like%20a%20free%20quote%20for%20my%20trees/garden%20please." 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="channel-item whatsapp-channel"
+            >
+              <div class="channel-icon">💬</div>
+              <div class="channel-details">
+                <span class="channel-label">WhatsApp Photo Appraisal</span>
+                <strong class="channel-value">089 449 4281</strong>
+                <span class="channel-hint">Tap to chat & send photos instantly</span>
+              </div>
+            </a>
+
+            <!-- Phone Item -->
+            <a href="tel:+353894494281" class="channel-item phone-channel">
+              <div class="channel-icon">📞</div>
+              <div class="channel-details">
+                <span class="channel-label">Direct Telephone Line</span>
+                <strong class="channel-value">089 449 4281</strong>
+                <span class="channel-hint">Mon – Sun: 8:00am – 8:00pm</span>
+              </div>
+            </a>
+
+            <!-- Coverage Item -->
+            <div class="channel-item standard-channel">
+              <div class="channel-icon">🇮🇪</div>
+              <div class="channel-details">
+                <span class="channel-label">Service Area</span>
+                <strong class="channel-value">All Counties Nationwide</strong>
+                <span class="channel-hint">Leinster, Munster, Connacht & Midlands</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- How to get a fast photo quote -->
+        <div class="photo-quote-guide">
+          <h3>📸 How to Get a Quick WhatsApp Quote:</h3>
+          <ol class="steps-list">
+            <li>
+              <strong>Step 1:</strong> Take 2–3 clear photos showing the entire tree, hedge, or overgrown area from different angles.
+            </li>
+            <li>
+              <strong>Step 2:</strong> Mention if there are obstacles nearby (power lines, garden sheds, fences, steep banks, or narrow gates).
+            </li>
+            <li>
+              <strong>Step 3:</strong> Send the photos along with your general county to <strong>089 449 4281</strong>. John will reply with an estimate!
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Right Column: Form -->
+      <div class="contact-form-column">
+        <ContactForm />
+      </div>
+    </div>
+  </section>
+
+  <!-- Nationwide Coverage Breakdown -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge badge-gold">Weekly Scheduled Routes</span>
+        <h2>Operating in Every Province in Ireland</h2>
+        <p>
+          Our heavy machinery transport vehicles run regular weekly maintenance loops. Find your region below to see our regular route schedule:
+        </p>
+      </div>
+
+      <div class="grid-4 province-cards">
+        {coverage.map((c) => (
+          <div class="province-card">
+            <h3 style={`color: ${c.color}`}>{c.name}</h3>
+            <p class="province-summary">{c.description}</p>
+            <div class="province-counties">
+              <strong>Key Counties:</strong>
+              <p>{c.counties.join(', ')}</p>
+            </div>
+            <a 
+              href={`https://wa.me/353894494281?text=${encodeURIComponent(`Hi John, I am located in ${c.name} and would like to ask about your upcoming availability in my area.`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="province-link"
+            >
+              Enquire for {c.name} →
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(180deg, #f4f7f5 0%, #ffffff 100%);
+    padding: 4rem 0 3rem 0;
+    text-align: center;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .page-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    margin-top: 0.75rem;
+    margin-bottom: 1rem;
+    color: var(--color-dark);
+  }
+
+  .page-subtitle {
+    font-size: 1.15rem;
+    color: var(--color-gray-dark);
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  @media (min-width: 960px) {
+    .contact-grid {
+      grid-template-columns: 1.1fr 1.2fr;
+      gap: 4rem;
+    }
+  }
+
+  .info-card {
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    margin-bottom: 2rem;
+  }
+
+  .info-card h2 {
+    font-size: 1.85rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .info-intro {
+    color: var(--color-gray);
+    font-size: 0.975rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .channels-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .channel-item {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.25rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    background-color: var(--color-gray-light);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+  }
+
+  .channel-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .whatsapp-channel {
+    background: rgba(37, 211, 102, 0.08);
+    border-color: rgba(37, 211, 102, 0.3);
+  }
+
+  .whatsapp-channel:hover {
+    background: rgba(37, 211, 102, 0.15);
+  }
+
+  .channel-icon {
+    font-size: 2.25rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .channel-details {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .channel-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--color-gray);
+  }
+
+  .channel-value {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--color-dark);
+    line-height: 1.2;
+    margin: 0.2rem 0;
+  }
+
+  .whatsapp-channel .channel-value {
+    color: #1a7e3d;
+  }
+
+  .channel-hint {
+    font-size: 0.85rem;
+    color: var(--color-gray);
+  }
+
+  .photo-quote-guide {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    border: 1px solid var(--color-border);
+  }
+
+  .photo-quote-guide h3 {
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+    color: var(--color-dark);
+  }
+
+  .steps-list {
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    font-size: 0.925rem;
+    color: var(--color-gray-dark);
+    line-height: 1.5;
+  }
+
+  .province-cards {
+    margin-top: 2rem;
+  }
+
+  .province-card {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .province-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .province-summary {
+    font-size: 0.875rem;
+    color: var(--color-gray);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  .province-counties {
+    font-size: 0.85rem;
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
+  }
+
+  .province-counties strong {
+    color: var(--color-dark);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .province-counties p {
+    color: var(--color-gray-dark);
+    margin: 0;
+  }
+
+  .province-link {
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .province-link:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 640px) {
+    .page-title {
+      font-size: 2rem;
+    }
+  }
+</style>

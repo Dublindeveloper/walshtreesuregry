@@ -1,0 +1,101 @@
+---
+const signals = [
+  {
+    icon: "🇮🇪",
+    title: "Nationwide Coverage",
+    description: "Servicing all 4 provinces across Ireland with regular weekly scheduled routes."
+  },
+  {
+    icon: "📸",
+    title: "WhatsApp Photo Quotes",
+    description: "Send photos or video of your trees or garden to 089 449 4281 for a prompt, free quote."
+  },
+  {
+    icon: "🛡️",
+    title: "Fully Insured & Safe",
+    description: "Experienced tree surgeon and grounds care professional operating to rigorous safety standards."
+  },
+  {
+    icon: "🚜",
+    title: "Heavy-Duty Equipment",
+    description: "Fully equipped with commercial wood chippers, stump grinders, access lifts, and haulage trucks."
+  }
+];
+---
+
+<section class="trust-signals-section">
+  <div class="container">
+    <div class="signals-grid">
+      {signals.map((item) => (
+        <div class="signal-card">
+          <span class="signal-icon">{item.icon}</span>
+          <div class="signal-content">
+            <h3 class="signal-title">{item.title}</h3>
+            <p class="signal-desc">{item.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .trust-signals-section {
+    background-color: #ffffff;
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .signals-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .signals-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .signals-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .signal-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: var(--color-gray-light);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .signal-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .signal-icon {
+    font-size: 2rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .signal-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+    color: var(--color-dark);
+  }
+
+  .signal-desc {
+    font-size: 0.875rem;
+    color: var(--color-gray);
+    line-height: 1.45;
+  }
+</style>

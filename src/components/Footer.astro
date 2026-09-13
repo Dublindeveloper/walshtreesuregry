@@ -1,0 +1,282 @@
+---
+import services from '../data/services.json';
+import coverage from '../data/coverage.json';
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <!-- Brand Col -->
+    <div class="footer-col brand-col">
+      <div class="footer-brand">
+        <img src="/logo.webp" alt="Walsh Garden and Tree Care" class="footer-logo" width="65" height="65" />
+        <div>
+          <h3 class="footer-title">WALSH</h3>
+          <p class="footer-tagline">GARDEN & TREE CARE</p>
+        </div>
+      </div>
+      <p class="footer-desc">
+        Professional tree surgery, hedge trimming, garden clearances, and large-scale lawn maintenance. Fully equipped with dedicated transport vehicles servicing all four provinces across Ireland.
+      </p>
+      <div class="footer-trust-badge">
+        <span class="shield">🛡️</span> Fully Insured & Experienced Tradesman
+      </div>
+    </div>
+
+    <!-- Services Col -->
+    <div class="footer-col">
+      <h4 class="col-heading">Our Core Services</h4>
+      <ul class="footer-links">
+        {services.map((service) => (
+          <li>
+            <a href={`/services#${service.id}`}>{service.title}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Coverage Hubs Col -->
+    <div class="footer-col">
+      <h4 class="col-heading">Nationwide Routes</h4>
+      <ul class="coverage-list">
+        {coverage.map((hub) => (
+          <li>
+            <strong>{hub.name}:</strong> 
+            <span>{hub.counties.join(" · ")}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Direct Contact Col -->
+    <div class="footer-col contact-col">
+      <h4 class="col-heading">Get in Touch</h4>
+      <p class="direct-contact-note">
+        Direct contact with John Walsh for quick quotations & nationwide bookings:
+      </p>
+      <div class="contact-buttons">
+        <a href="tel:+353894494281" class="contact-pill">
+          📞 <strong>089 449 4281</strong>
+        </a>
+        <a 
+          href="https://wa.me/353894494281?text=Hi%20John%2C%20I'd%20like%20a%20free%20quote%20please."
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="contact-pill whatsapp-pill"
+        >
+          💬 <strong>WhatsApp Chat</strong>
+        </a>
+      </div>
+      <p class="response-badge">⚡ Quick response time across all counties</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container bottom-content">
+      <p>&copy; {new Date().getFullYear()} Walsh Garden & Tree Care. All Rights Reserved.</p>
+      <p class="nationwide-text">Serving All Counties Nationwide Across Ireland</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: var(--color-dark);
+    color: #e2e8f0;
+    padding-top: 4rem;
+    font-size: 0.95rem;
+    margin-top: auto;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: 1.4fr 1fr 1.2fr 1.1fr;
+    }
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 1rem;
+  }
+
+  .footer-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #ffffff;
+    padding: 2px;
+  }
+
+  .footer-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.1;
+  }
+
+  .footer-tagline {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    letter-spacing: 0.1em;
+  }
+
+  .footer-desc {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-trust-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0.4rem 0.85rem;
+    border-radius: var(--radius-full);
+    font-size: 0.825rem;
+    font-weight: 600;
+    color: #ffffff;
+  }
+
+  .col-heading {
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin-bottom: 1.25rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+
+  .col-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 35px;
+    height: 3px;
+    background-color: var(--color-accent);
+    border-radius: 2px;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .footer-links a {
+    color: #cbd5e1;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+  }
+
+  .footer-links a:hover {
+    color: var(--color-accent);
+    padding-left: 4px;
+  }
+
+  .coverage-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    font-size: 0.875rem;
+  }
+
+  .coverage-list strong {
+    color: #ffffff;
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  .coverage-list span {
+    color: #cbd5e1;
+  }
+
+  .direct-contact-note {
+    font-size: 0.875rem;
+    color: #cbd5e1;
+    margin-bottom: 1rem;
+  }
+
+  .contact-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .contact-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-md);
+    transition: background 0.2s ease;
+    text-decoration: none;
+    font-family: var(--font-heading);
+  }
+
+  .contact-pill:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .whatsapp-pill {
+    background: var(--color-whatsapp);
+    color: #ffffff;
+  }
+
+  .whatsapp-pill:hover {
+    background: var(--color-whatsapp-dark);
+  }
+
+  .response-badge {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: #94a3b8;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem 0;
+    font-size: 0.85rem;
+    color: #94a3b8;
+  }
+
+  .bottom-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  @media (min-width: 640px) {
+    .bottom-content {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+
+  .nationwide-text {
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+</style>

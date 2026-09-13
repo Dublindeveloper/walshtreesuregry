@@ -1,0 +1,430 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTAStrip from '../components/CTAStrip.astro';
+import gallery from '../data/gallery.json';
+
+const pageTitle = "Our Work | Real Before & After Garden & Tree Transformations";
+const pageDescription = "Explore our portfolio of real garden clearances, tree surgery, hedge trimming reductions, and commercial machinery at work across Ireland. 100% authentic project photos.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="badge badge-gold">Real Project Portfolio</span>
+      <h1 class="page-title">Before & After Project Showcase</h1>
+      <p class="page-subtitle">
+        Browse real transformations delivered by John Walsh and the team. From dense conifer hedge reductions to wild garden clearouts and dangerous tree removals.
+      </p>
+
+      <!-- Category Filter Pills -->
+      <div class="filter-controls" role="tablist" aria-label="Gallery categories">
+        <button class="filter-btn active" data-filter="all">All Projects ({gallery.length})</button>
+        <button class="filter-btn" data-filter="Before & After">Before & After Collages</button>
+        <button class="filter-btn" data-filter="Showcase Work">Finished Gardens & Lawns</button>
+        <button class="filter-btn" data-filter="On The Job">On The Job & Equipment</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Grid -->
+  <section class="section">
+    <div class="container">
+      <div class="gallery-grid" id="gallery-container">
+        {gallery.map((item) => (
+          <div class="gallery-item" data-category={item.category}>
+            <div class="gallery-card">
+              <div class="gallery-img-wrap" data-src={item.src} data-title={item.title}>
+                <img 
+                  src={item.src} 
+                  alt={item.alt} 
+                  loading="lazy" 
+                  class="gallery-thumbnail"
+                />
+                <span class="category-badge">{item.category}</span>
+                <div class="zoom-overlay">
+                  <span>🔍 View Full Size</span>
+                </div>
+              </div>
+              <div class="gallery-card-body">
+                <h3 class="gallery-card-title">{item.title}</h3>
+                <p class="gallery-card-desc">{item.alt}</p>
+                <div class="gallery-card-actions">
+                  <a 
+                    href={`https://wa.me/353894494281?text=${encodeURIComponent(`Hi John, I saw the photo "${item.title}" on your website and would like a quote for something similar.`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-quote-link"
+                  >
+                    <span>💬 Quote for Similar Work</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal / Lightbox Dialog -->
+  <dialog id="image-lightbox" class="lightbox-modal">
+    <div class="lightbox-content">
+      <button id="lightbox-close" class="lightbox-close" aria-label="Close image">&times;</button>
+      <img id="lightbox-img" src="" alt="" class="lightbox-display-img" />
+      <div class="lightbox-footer">
+        <h4 id="lightbox-title"></h4>
+        <a 
+          id="lightbox-whatsapp-link" 
+          href="https://wa.me/353894494281" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="btn btn-whatsapp btn-sm"
+        >
+          💬 Enquire About This Work
+        </a>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Bottom CTA -->
+  <CTAStrip 
+    title="Have a Tree or Garden Project in Mind?"
+    subtitle="Snap a few photos and send them via WhatsApp to 089 449 4281 for an instant quote."
+    whatsappMessage="Hi John, I have a garden project and would like to send photos for a quote."
+  />
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(180deg, #f4f7f5 0%, #ffffff 100%);
+    padding: 4rem 0 3rem 0;
+    text-align: center;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .page-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    margin-top: 0.75rem;
+    margin-bottom: 1rem;
+    color: var(--color-dark);
+  }
+
+  .page-subtitle {
+    font-size: 1.15rem;
+    color: var(--color-gray-dark);
+    max-width: 720px;
+    margin: 0 auto 2rem auto;
+    line-height: 1.6;
+  }
+
+  .filter-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+  }
+
+  .filter-btn {
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    padding: 0.6rem 1.25rem;
+    border-radius: var(--radius-full);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--color-dark);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .filter-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .filter-btn.active {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 10px rgba(45, 106, 79, 0.25);
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 640px) {
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .gallery-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .gallery-card {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .gallery-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .gallery-img-wrap {
+    position: relative;
+    width: 100%;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+  }
+
+  .gallery-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    display: block;
+  }
+
+  .gallery-img-wrap:hover .gallery-thumbnail {
+    transform: scale(1.03);
+  }
+
+  .category-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-full);
+    pointer-events: none;
+  }
+
+  .zoom-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease;
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.9rem;
+    backdrop-filter: blur(2px);
+  }
+
+  .gallery-img-wrap:hover .zoom-overlay {
+    opacity: 1;
+  }
+
+  .gallery-card-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .gallery-card-title {
+    font-size: 1.15rem;
+    color: var(--color-dark);
+    margin-bottom: 0.4rem;
+  }
+
+  .gallery-card-desc {
+    font-size: 0.875rem;
+    color: var(--color-gray);
+    line-height: 1.45;
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
+  }
+
+  .gallery-card-actions {
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .btn-quote-link {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: color 0.2s ease;
+  }
+
+  .btn-quote-link:hover {
+    color: var(--color-whatsapp-dark);
+  }
+
+  /* Modal Styles */
+  .lightbox-modal {
+    border: none;
+    border-radius: var(--radius-lg);
+    padding: 0;
+    max-width: 90vw;
+    max-height: 90vh;
+    background: #000000;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    margin: auto;
+  }
+
+  .lightbox-modal::backdrop {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+  }
+
+  .lightbox-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-width: 90vw;
+    max-height: 90vh;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    font-size: 2rem;
+    line-height: 1;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+  }
+
+  .lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  .lightbox-display-img {
+    max-width: 90vw;
+    max-height: 75vh;
+    object-fit: contain;
+    background: #000;
+  }
+
+  .lightbox-footer {
+    background: #181818;
+    color: #ffffff;
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @media (min-width: 600px) {
+    .lightbox-footer {
+      flex-direction: row;
+    }
+  }
+
+  #lightbox-title {
+    font-size: 1.1rem;
+    margin: 0;
+    color: #ffffff;
+  }
+
+  .btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 640px) {
+    .page-title {
+      font-size: 2rem;
+    }
+  }
+</style>
+
+<script>
+  // Filter logic
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const items = document.querySelectorAll('.gallery-item');
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      const targetCategory = btn.getAttribute('data-filter');
+
+      items.forEach((item) => {
+        const itemCat = item.getAttribute('data-category');
+        if (targetCategory === 'all' || itemCat === targetCategory) {
+          (item as HTMLElement).style.display = 'block';
+        } else {
+          (item as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Lightbox logic
+  const modal = document.getElementById('image-lightbox') as HTMLDialogElement | null;
+  const modalImg = document.getElementById('lightbox-img') as HTMLImageElement | null;
+  const modalTitle = document.getElementById('lightbox-title');
+  const closeBtn = document.getElementById('lightbox-close');
+  const modalWhatsApp = document.getElementById('lightbox-whatsapp-link') as HTMLAnchorElement | null;
+
+  document.querySelectorAll('.gallery-img-wrap').forEach((wrap) => {
+    wrap.addEventListener('click', () => {
+      const src = wrap.getAttribute('data-src');
+      const title = wrap.getAttribute('data-title');
+      if (modal && modalImg && src) {
+        modalImg.src = src;
+        if (modalTitle && title) modalTitle.textContent = title;
+        if (modalWhatsApp && title) {
+          modalWhatsApp.href = `https://wa.me/353894494281?text=${encodeURIComponent(`Hi John, I am looking at "${title}" on your gallery and would like a quote.`)}`;
+        }
+        modal.showModal();
+      }
+    });
+  });
+
+  if (closeBtn && modal) {
+    closeBtn.addEventListener('click', () => {
+      modal.close();
+    });
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.close();
+      }
+    });
+  }
+</script>

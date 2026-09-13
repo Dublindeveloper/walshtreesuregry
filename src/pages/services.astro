@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceBlock from '../components/ServiceBlock.astro';
+import CTAStrip from '../components/CTAStrip.astro';
+import services from '../data/services.json';
+
+const pageTitle = "Our Services | Tree Surgery, Hedge Trimming & Clearances";
+const pageDescription = "Comprehensive tree surgery, hedge trimming, garden clearances, large-scale lawn mowing, and stump grinding across all counties in Ireland. Fully insured with commercial equipment.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <!-- Page Header -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="badge badge-gold">Ireland-Wide Specialists</span>
+      <h1 class="page-title">Specialist Tree & Garden Services</h1>
+      <p class="page-subtitle">
+        Equipped with commercial woodchippers, high-access trimmers, and transport fleet. Servicing residential properties, estates, farms, and commercial sites nationwide.
+      </p>
+
+      <!-- Quick Anchor Links -->
+      <nav class="quick-nav" aria-label="Services Navigation">
+        <span class="quick-nav-label">Jump to Service:</span>
+        <div class="quick-links-pills">
+          {services.map((s) => (
+            <a href={`#${s.id}`} class="quick-pill">
+              <span>{s.icon}</span> {s.title}
+            </a>
+          ))}
+        </div>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Service Details Section -->
+  <section class="section">
+    <div class="container">
+      <div class="services-list">
+        {services.map((service, index) => (
+          <ServiceBlock 
+            {...service} 
+            isReversed={index % 2 !== 0} 
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Equipment & Standards Section -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">Commercial Standards</span>
+        <h2>How We Work & What to Expect</h2>
+        <p>
+          We pride ourselves on punctuality, safety compliance, thorough site clearance, and straightforward pricing.
+        </p>
+      </div>
+
+      <div class="grid-3 standards-grid">
+        <div class="standard-card">
+          <div class="std-icon">🛡️</div>
+          <h3>Fully Insured & Safe</h3>
+          <p>Tree surgery and high hedge trimming require serious precautions. We operate with strict safety protocols, rigorous PPE, and comprehensive public liability cover.</p>
+        </div>
+
+        <div class="standard-card">
+          <div class="std-icon">🚜</div>
+          <h3>Heavy Commercial Equipment</h3>
+          <p>We bring our own commercial mobile woodchippers, high-reach pole trimmers, chainsaws, and root grinders, capable of tackling jobs that ordinary landscapers cannot handle.</p>
+        </div>
+
+        <div class="standard-card">
+          <div class="std-icon">🌱</div>
+          <h3>100% Green Waste Cleared</h3>
+          <p>No messy branches or heaps left on your lawn. All brushwood is chipped, wood is chopped or hauled away, and your walkways and lawn edges are swept clean.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Strip -->
+  <CTAStrip 
+    title="Need a Quote for Any of These Services?"
+    subtitle="Send pictures of your garden or trees to John Walsh on WhatsApp 089 449 4281 for an upfront, honest price."
+    whatsappMessage="Hi John, I am browsing your services page and would like a quote."
+  />
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(180deg, #f4f7f5 0%, #ffffff 100%);
+    padding: 4rem 0 3rem 0;
+    text-align: center;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .page-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    margin-top: 0.75rem;
+    margin-bottom: 1rem;
+    color: var(--color-dark);
+  }
+
+  .page-subtitle {
+    font-size: 1.15rem;
+    color: var(--color-gray-dark);
+    max-width: 700px;
+    margin: 0 auto 2.5rem auto;
+    line-height: 1.6;
+  }
+
+  .quick-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .quick-nav-label {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-gray);
+  }
+
+  .quick-links-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+  }
+
+  .quick-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-full);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: var(--color-dark);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s ease;
+  }
+
+  .quick-pill:hover {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+  }
+
+  .standards-grid {
+    margin-top: 2rem;
+  }
+
+  .standard-card {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+  }
+
+  .std-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .standard-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-dark);
+  }
+
+  .standard-card p {
+    font-size: 0.925rem;
+    color: var(--color-gray);
+    line-height: 1.55;
+  }
+
+  @media (max-width: 640px) {
+    .page-title {
+      font-size: 2rem;
+    }
+  }
+</style>

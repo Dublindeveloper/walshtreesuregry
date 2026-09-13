@@ -1,0 +1,34 @@
+[
+  {
+    "id": "midlands",
+    "name": "The Midlands",
+    "badge": "Midlands Route",
+    "color": "#2d6a4f",
+    "counties": ["Offaly", "Westmeath", "Laois", "Longford"],
+    "description": "Weekly scheduled routes throughout the Midlands for residential and rural properties."
+  },
+  {
+    "id": "leinster",
+    "name": "Leinster",
+    "badge": "Leinster Route",
+    "color": "#1b4965",
+    "counties": ["Greater Dublin Area", "Kildare", "Meath", "Louth", "Wexford"],
+    "description": "Full coverage across Leinster, offering rapid response for large estates and suburban homes."
+  },
+  {
+    "id": "munster",
+    "name": "Munster",
+    "badge": "Munster Route",
+    "color": "#b58110",
+    "counties": ["Cork City & County", "Limerick", "Waterford", "Kerry"],
+    "description": "Comprehensive tree surgery and hedge cutting operations across all southern counties."
+  },
+  {
+    "id": "connacht-ulster",
+    "name": "Connacht & Ulster",
+    "badge": "West & North Route",
+    "color": "#b84223",
+    "counties": ["Roscommon", "Galway", "Mayo", "Sligo", "Donegal"],
+    "description": "Dedicated routes covering the West and North-West with fully equipped heavy-duty machinery."
+  }
+]

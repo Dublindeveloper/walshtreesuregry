@@ -1,0 +1,117 @@
+---
+import WhatsAppButton from './WhatsAppButton.astro';
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  whatsappMessage?: string;
+  bgVariant?: 'dark' | 'green';
+}
+
+const {
+  title = "Ready to Transform Your Trees & Garden?",
+  subtitle = "Direct contact with John Walsh · Serving all counties nationwide across Ireland · Send photos for an instant WhatsApp quote.",
+  whatsappMessage = "Hi John, I found your website and I'd like to get a free quote please.",
+  bgVariant = 'green'
+} = Astro.props;
+---
+
+<section class={`cta-strip ${bgVariant === 'dark' ? 'bg-dark' : 'bg-green'}`}>
+  <div class="container cta-content">
+    <div class="cta-text">
+      <span class="cta-badge">🇮🇪 Nationwide Routes Weekly</span>
+      <h2 class="cta-title">{title}</h2>
+      <p class="cta-subtitle">{subtitle}</p>
+    </div>
+    <div class="cta-actions">
+      <WhatsAppButton 
+        text="WhatsApp Free Quote" 
+        message={whatsappMessage}
+      />
+      <a href="tel:+353894494281" class="btn btn-outline btn-call">
+        <span>📞 Call 089 449 4281</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-strip {
+    padding: 4rem 0;
+    color: #ffffff;
+    text-align: center;
+  }
+
+  .bg-green {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  }
+
+  .bg-dark {
+    background: linear-gradient(135deg, #1b1b1b 0%, #242b27 100%);
+  }
+
+  .cta-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .cta-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0.35rem 1rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .cta-title {
+    color: #ffffff;
+    font-size: 2.25rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+    max-width: 800px;
+  }
+
+  .cta-subtitle {
+    color: #e2e8f0;
+    font-size: 1.15rem;
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btn-call {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 640px) {
+    .cta-title {
+      font-size: 1.75rem;
+    }
+    .cta-subtitle {
+      font-size: 1rem;
+    }
+    .cta-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+    .cta-actions :global(.btn), .btn-call {
+      width: 100%;
+    }
+  }
+</style>

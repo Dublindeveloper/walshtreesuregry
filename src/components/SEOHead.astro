@@ -1,0 +1,71 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description,
+  canonicalUrl = Astro.url.href,
+  ogImage = '/images/01-collage-pair1.jpg'
+} = Astro.props;
+
+const siteName = "Walsh Garden and Tree Care";
+const fullTitle = `${title} | ${siteName}`;
+const fullOgImageUrl = new URL(ogImage, Astro.site || Astro.url.origin).href;
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Walsh Garden and Tree Care",
+  "description": "Professional garden clearances, tree surgery, hedge trimming, and lawn care serving all counties nationwide across Ireland.",
+  "telephone": "+353894494281",
+  "url": "https://walshgardenandtree.ie",
+  "logo": "https://walshgardenandtree.ie/logo.webp",
+  "image": fullOgImageUrl,
+  "areaServed": {
+    "@type": "Country",
+    "name": "Ireland"
+  },
+  "serviceType": [
+    "Tree Surgery & Care",
+    "Hedge Trimming & Maintenance",
+    "Garden Clearances & Makeovers",
+    "Lawn Care & Maintenance",
+    "Stump Grinding & Removal"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+353894494281",
+    "contactType": "customer service",
+    "availableLanguage": "en"
+  }
+};
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalUrl} />
+<link rel="icon" type="image/webp" href="/logo.webp" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:image" content={fullOgImageUrl} />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={fullOgImageUrl} />
+
+<!-- Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />

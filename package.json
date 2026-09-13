@@ -1,0 +1,19 @@
+{
+  "name": "treesurgery",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "dev": "ASTRO_TELEMETRY_DISABLED=1 XDG_CONFIG_HOME=.config astro dev",
+    "start": "ASTRO_TELEMETRY_DISABLED=1 XDG_CONFIG_HOME=.config astro dev",
+    "build": "ASTRO_TELEMETRY_DISABLED=1 XDG_CONFIG_HOME=.config astro build",
+    "preview": "ASTRO_TELEMETRY_DISABLED=1 XDG_CONFIG_HOME=.config astro preview",
+    "astro": "ASTRO_TELEMETRY_DISABLED=1 XDG_CONFIG_HOME=.config astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "@fontsource/montserrat": "^5.3.0",
+    "@fontsource/open-sans": "^5.3.0",
+    "astro": "^7.3.2"
+  }
+}

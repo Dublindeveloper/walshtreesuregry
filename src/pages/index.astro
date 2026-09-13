@@ -1,0 +1,557 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TrustSignal from '../components/TrustSignal.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import CoverageHubs from '../components/CoverageHubs.astro';
+import CTAStrip from '../components/CTAStrip.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import services from '../data/services.json';
+import gallery from '../data/gallery.json';
+
+const beforeAfterCollages = gallery.filter((item) => item.category === "Before & After").slice(0, 4);
+
+const pageTitle = "Walsh Garden and Tree Care | Tree Surgery & Hedge Care Nationwide Ireland";
+const pageDescription = "Professional tree surgery, hedge trimming, garden clearances, lawn care and stump grinding serving all counties nationwide across Ireland. Call or WhatsApp John Walsh on 089 449 4281.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="dot-pulse"></span>
+          <span>Weekly Routes Nationwide Across Ireland</span>
+        </div>
+        <h1 class="hero-title">
+          Expert Tree Surgery, Hedge Trimming & Garden Care
+        </h1>
+        <p class="hero-subtitle">
+          Commercial and domestic tree surgery, high hedge reduction, and complete garden clearouts. Operating dedicated transport routes across all four provinces in Ireland.
+        </p>
+        
+        <div class="hero-ctas">
+          <WhatsAppButton 
+            text="WhatsApp Free Quote" 
+            message="Hi John, I would like a free quote for my trees/garden please."
+          />
+          <a href="tel:+353894494281" class="btn btn-outline-primary hero-call-btn">
+            <span>📞 Call 089 449 4281</span>
+          </a>
+        </div>
+
+        <ul class="hero-perks">
+          <li><span>✓</span> Direct Tradesman Contact</li>
+          <li><span>✓</span> All 4 Provinces Covered</li>
+          <li><span>✓</span> Fully Insured & Equipped</li>
+        </ul>
+      </div>
+
+      <div class="hero-media">
+        <div class="hero-image-frame">
+          <img 
+            src="/images/01-collage-pair1.jpg" 
+            alt="Before and after hedge reduction project by Walsh Garden and Tree Care" 
+            class="hero-img"
+            width="600"
+            height="450"
+            fetchpriority="high"
+          />
+          <div class="hero-floating-card">
+            <div class="card-icon">⚡</div>
+            <div>
+              <div class="card-text-title">Fast Photo Quotes</div>
+              <div class="card-text-sub">Send photos to 089 449 4281</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Signals -->
+  <TrustSignal />
+
+  <!-- Core Services Section -->
+  <section class="section section-light" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">Professional Solutions</span>
+        <h2>Our Core Specialist Services</h2>
+        <p>
+          High-grade equipment, commercial-grade chippers, and years of hands-on expertise delivering pristine results.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        {services.map((service) => (
+          <ServiceCard {...service} />
+        ))}
+      </div>
+
+      <div class="services-cta-box">
+        <p>Need multiple services or an estate-wide clearance?</p>
+        <a href="/services" class="btn btn-primary">
+          Explore Detailed Service Breakdown →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Before & After Mini Showcase -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge badge-gold">Real Transformations</span>
+        <h2>Proven Before & After Results</h2>
+        <p>
+          Every job is approached with meticulous care, safe practices, and a complete site tidy-up before we leave.
+        </p>
+      </div>
+
+      <div class="grid-2 showcase-grid">
+        {beforeAfterCollages.map((item) => (
+          <div class="showcase-card">
+            <div class="showcase-img-wrap">
+              <img src={item.src} alt={item.alt} loading="lazy" />
+            </div>
+            <div class="showcase-info">
+              <h3>{item.title}</h3>
+              <p>{item.alt}</p>
+              <a 
+                href={`https://wa.me/353894494281?text=${encodeURIComponent(`Hi John, I saw the ${item.title} on your website and would like a quote for similar work.`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="showcase-quote-link"
+              >
+                <span>Request Similar Work →</span>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="center-cta">
+        <a href="/gallery" class="btn btn-primary">
+          View Complete Gallery (60+ Project Photos) →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nationwide Coverage Section -->
+  <CoverageHubs />
+
+  <!-- Direct Experience / About Strip -->
+  <section class="section section-dark">
+    <div class="container experience-grid">
+      <div class="experience-content">
+        <span class="badge badge-gold">Direct Contractor</span>
+        <h2>Why Work With John Walsh?</h2>
+        <p>
+          When you call Walsh Garden and Tree Care, you deal directly with John. No call centers, no subcontractors, and no unexpected surprises on the day.
+        </p>
+        <div class="reasons-list">
+          <div class="reason-item">
+            <span class="reason-icon">🚛</span>
+            <div>
+              <h4>Equipped for Heavy Jobs</h4>
+              <p>Specialist transport trucks, high-reach pole trimmers, commercial woodchippers, and stump grinders ready for any scale of job.</p>
+            </div>
+          </div>
+          <div class="reason-item">
+            <span class="reason-icon">🧹</span>
+            <div>
+              <h4>Clean Site Guarantee</h4>
+              <p>We chip, bag, and remove green waste, raking pathways and lawns clean so your property is left immaculate.</p>
+            </div>
+          </div>
+          <div class="reason-item">
+            <span class="reason-icon">💬</span>
+            <div>
+              <h4>Zero-Fuss Photo Quotes</h4>
+              <p>Simply take a quick video or a couple of photos on your phone and send them to 089 449 4281 on WhatsApp for a fast price.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="experience-media">
+        <div class="experience-card">
+          <img src="/images/30-in-progress-wood-chipper-truck.jpg" alt="Walsh Tree Care Wood Chipper and Truck on site" loading="lazy" />
+          <div class="exp-caption">
+            <strong>Equipped for Rapid Nationwide Turnaround</strong>
+            <span>Dedicated fleet servicing all counties across Ireland</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA Banner -->
+  <CTAStrip 
+    title="Ready for a Neat, Safe & Transformed Garden?"
+    subtitle="Contact John Walsh today for direct pricing and scheduled route availability in your county."
+    whatsappMessage="Hi John, I found your website and I'd like a quote for my property."
+  />
+</BaseLayout>
+
+<style>
+  /* Hero Styles */
+  .hero-section {
+    padding: 3.5rem 0 4.5rem 0;
+    background: linear-gradient(180deg, #ffffff 0%, #f4f7f5 100%);
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  @media (min-width: 960px) {
+    .hero-grid {
+      grid-template-columns: 1.15fr 1fr;
+      gap: 4rem;
+    }
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(45, 106, 79, 0.1);
+    color: var(--color-primary-dark);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.95rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 1.25rem;
+  }
+
+  .dot-pulse {
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-whatsapp);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(0.95); opacity: 0.8; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(0.95); opacity: 0.8; }
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--color-dark);
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  @media (min-width: 640px) {
+    .hero-title {
+      font-size: 3.25rem;
+    }
+  }
+
+  .hero-subtitle {
+    font-size: 1.15rem;
+    color: var(--color-gray-dark);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    max-width: 580px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-call-btn {
+    font-size: 1rem;
+  }
+
+  .hero-perks {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-dark);
+  }
+
+  .hero-perks li {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .hero-perks span {
+    color: var(--color-primary);
+    font-weight: 800;
+  }
+
+  .hero-media {
+    position: relative;
+  }
+
+  .hero-image-frame {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    background: #111;
+  }
+
+  .hero-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .hero-floating-card {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-radius: var(--radius-md);
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .card-icon {
+    font-size: 1.75rem;
+    line-height: 1;
+  }
+
+  .card-text-title {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 0.9rem;
+    color: var(--color-dark);
+  }
+
+  .card-text-sub {
+    font-size: 0.8rem;
+    color: var(--color-gray);
+  }
+
+  /* Services Grid */
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  @media (min-width: 640px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .services-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .services-cta-box {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .services-cta-box {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+
+  .services-cta-box p {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 0;
+  }
+
+  /* Showcase Grid */
+  .showcase-grid {
+    margin-bottom: 3rem;
+  }
+
+  .showcase-card {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .showcase-img-wrap {
+    width: 100%;
+    overflow: hidden;
+    background-color: #222;
+  }
+
+  .showcase-img-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .showcase-card:hover .showcase-img-wrap img {
+    transform: scale(1.02);
+  }
+
+  .showcase-info {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .showcase-info h3 {
+    font-size: 1.25rem;
+    color: var(--color-dark);
+  }
+
+  .showcase-info p {
+    font-size: 0.9rem;
+    color: var(--color-gray);
+    line-height: 1.5;
+  }
+
+  .showcase-quote-link {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--color-primary);
+    margin-top: 0.5rem;
+    display: inline-block;
+  }
+
+  .center-cta {
+    text-align: center;
+  }
+
+  /* Experience Grid */
+  .experience-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  @media (min-width: 960px) {
+    .experience-grid {
+      grid-template-columns: 1.2fr 1fr;
+      gap: 4rem;
+    }
+  }
+
+  .experience-content h2 {
+    color: #ffffff;
+    font-size: 2.25rem;
+    margin-top: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .experience-content p {
+    color: #cbd5e1;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .reasons-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .reason-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .reason-icon {
+    font-size: 2rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .reason-item h4 {
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .reason-item p {
+    color: #94a3b8;
+    font-size: 0.925rem;
+    margin: 0;
+    line-height: 1.45;
+  }
+
+  .experience-card {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    background: #242b27;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .experience-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .exp-caption {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .exp-caption strong {
+    color: #ffffff;
+    font-size: 1rem;
+  }
+
+  .exp-caption span {
+    color: var(--color-accent);
+    font-size: 0.85rem;
+  }
+</style>

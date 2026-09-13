@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+
+const pageTitle = "Page Not Found | Walsh Garden and Tree Care";
+const pageDescription = "Sorry, the page you were looking for could not be found. Contact Walsh Garden and Tree Care or return to our homepage.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <section class="error-section">
+    <div class="container error-container">
+      <div class="error-badge">404</div>
+      <h1 class="error-title">Page Not Found</h1>
+      <p class="error-desc">
+        The page you are looking for may have been moved or is no longer available. You can return to our homepage or reach out directly to John Walsh for any inquiries.
+      </p>
+
+      <div class="error-actions">
+        <a href="/" class="btn btn-primary">
+          Back to Homepage
+        </a>
+        <WhatsAppButton text="Contact on WhatsApp" />
+      </div>
+
+      <div class="helpful-links">
+        <span class="links-title">Popular Pages:</span>
+        <div class="links-row">
+          <a href="/services">Core Services</a>
+          <a href="/gallery">Before & After Gallery</a>
+          <a href="/about">About John Walsh</a>
+          <a href="/contact">Contact & Quotes</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .error-section {
+    padding: 6rem 0;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    background-color: var(--color-gray-light);
+  }
+
+  .error-container {
+    max-width: 600px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .error-badge {
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+  }
+
+  .error-title {
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+    color: var(--color-dark);
+  }
+
+  .error-desc {
+    font-size: 1.05rem;
+    color: var(--color-gray);
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+  }
+
+  .error-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+
+  .helpful-links {
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .links-title {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-gray);
+    margin-bottom: 0.75rem;
+  }
+
+  .links-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .links-row a {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  .links-row a:hover {
+    color: var(--color-primary-dark);
+  }
+</style>
